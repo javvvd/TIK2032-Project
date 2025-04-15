@@ -21,9 +21,12 @@ nav {
     padding: 15px;
     border-radius: 8px;
     margin-bottom: 30px;
-    text-align: center;
+    display: flex; /* Ini penting untuk membuat layout horizontal */
+    justify-content: space-between; /* Link ke kiri, jam ke kanan */
+    align-items: center; /* Rata tengah vertikal */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
+
 
 nav a {
     color: #fff;
@@ -179,4 +182,28 @@ input[type="submit"]:hover {
     margin-left: auto;
     padding: 0 10px;
     font-weight: bold;
+}
+/* Page transition */
+body.fade-out {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+body.fade-in {
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+.nav-links {
+    display: flex;
+    gap: 15px;
+    flex: 1;
+}
+
+.nav-clock {
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    background-color: #1a252f;
+    padding: 5px 12px;
+    border-radius: 6px;
 }

@@ -19,3 +19,34 @@ setInterval(() => {
         clock.textContent = now.toLocaleTimeString('id-ID');
     }
 }, 1000);
+
+
+document.addEventListener('DOMContentLoaded', function () {
+        // Tambahkan kelas fade-in setelah halaman dimuat
+        document.body.classList.add('fade-in');
+
+        // Tangani klik pada semua link <a>
+        const links = document.querySelectorAll('a[href]');
+        links.forEach(link => {
+            // Abaikan link eksternal atau anchor (#)
+            const isInternal = link.hostname === window.location.hostname;
+            const isAnchor = link.getAttribute('href').startsWith('#');
+
+            if (isInternal && !isAnchor) {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    // Tambahkan efek fade-out
+                    document.body.classList.remove('fade-in');
+                    document.body.classList.add('fade-out');
+
+                    // Setelah delay, redirect ke halaman tujuan
+                    setTimeout(() => {
+                        window.location.href = link.href;
+                    }, 300); // Sesuaikan dengan durasi transition
+                });
+            }
+        });
+    });
+
+
